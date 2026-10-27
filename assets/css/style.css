@@ -507,7 +507,7 @@ button, a { transition: var(--transition); }
 
 .rental-search-form [data-rental-kisumu-details][hidden],
 .booking-field[hidden] {
-  display: none;
+  display: none !important;
 }
 
 .rental-search-form .rental-detail-field {

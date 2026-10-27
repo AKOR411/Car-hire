@@ -142,6 +142,7 @@ const setupKisumuPickupDetails = function (form, citySelect) {
   const subcountySelect = form.querySelector("[data-kisumu-subcounty]");
   const wardSelect = form.querySelector("[data-kisumu-ward]");
 
+  citySelect.value = "";
   subcountySelect?.addEventListener("change", function () {
     populateKisumuWards(form, subcountySelect.value);
     updateKisumuPickupDetails(form, citySelect);

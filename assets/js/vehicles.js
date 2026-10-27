@@ -9,6 +9,19 @@ const sortSelect = document.querySelector("#sort-vehicles");
 const resultCount = document.querySelector("[data-results-count]");
 const emptyMessage = document.querySelector("[data-catalog-empty]");
 const clearFiltersButton = document.querySelector("[data-clear-filters]");
+const reservationDetails = new URLSearchParams(window.location.search);
+
+document.querySelectorAll(".catalog-reserve").forEach(function (link) {
+  const reservationUrl = new URL(link.href, window.location.href);
+
+  for (const [key, value] of reservationDetails) {
+    if (key !== "reserve" && value) {
+      reservationUrl.searchParams.set(key, value);
+    }
+  }
+
+  link.href = reservationUrl.href;
+});
 
 const updateCatalog = function () {
   const searchTerm = searchInput.value.trim().toLowerCase();

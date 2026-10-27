@@ -192,13 +192,28 @@ if (pickupDate && returnDate && rentalSearchForm && rentalSearchMessage) {
       return;
     }
 
-    const pickupDetails = pickupLocation.value === "Kisumu"
-      ? ` in ${rentalSearchForm.querySelector("[data-kisumu-subcounty]").value}, ${
+    const searchDetails = new URLSearchParams({
+      "pickup-location": pickupLocation.value,
+      "pickup-date": pickupDate.value,
+      "return-date": returnDate.value,
+    });
+
+    if (pickupLocation.value === "Kisumu") {
+      searchDetails.set(
+        "pickup-subcounty",
+        rentalSearchForm.querySelector("[data-kisumu-subcounty]").value
+      );
+      searchDetails.set(
+        "pickup-ward",
         rentalSearchForm.querySelector("[data-kisumu-ward]").value
-      }, ${rentalSearchForm.querySelector("[data-kisumu-area]").value}`
-      : "";
-    rentalSearchMessage.textContent =
-      `Dates selected for ${pickupLocation.value}${pickupDetails}. Live vehicle availability is not connected yet; contact Akora to confirm your booking.`;
+      );
+      searchDetails.set(
+        "pickup-area",
+        rentalSearchForm.querySelector("[data-kisumu-area]").value.trim()
+      );
+    }
+
+    window.location.href = `./vehicles.html?${searchDetails.toString()}`;
   });
 }
 
@@ -371,22 +386,31 @@ if (bookingDialog && bookingForm && bookingPickupLocation && bookingPickupDate &
       bookingCarSummary.textContent = `${vehicle} · ${carPrice}`;
       bookingVehicleField.value = vehicle;
       bookingPriceField.value = carPrice;
-      bookingPickupLocation.value = pickupLocation ? pickupLocation.value : "";
+      const reservationDetails = new URLSearchParams(window.location.search);
+      bookingPickupLocation.value =
+        reservationDetails.get("pickup-location") || (pickupLocation ? pickupLocation.value : "");
       updateKisumuPickupDetails(bookingForm, bookingPickupLocation);
 
-      if (bookingPickupLocation.value === "Kisumu" && rentalSearchForm) {
+      if (bookingPickupLocation.value === "Kisumu") {
         const bookingSubcounty = bookingForm.querySelector("[data-kisumu-subcounty]");
-        bookingSubcounty.value = rentalSearchForm.querySelector("[data-kisumu-subcounty]").value;
+        const searchSubcounty = rentalSearchForm?.querySelector("[data-kisumu-subcounty]")?.value;
+        bookingSubcounty.value =
+          reservationDetails.get("pickup-subcounty") || searchSubcounty || "";
         bookingSubcounty.dispatchEvent(new Event("change"));
+        const searchWard = rentalSearchForm?.querySelector("[data-kisumu-ward]")?.value;
         bookingForm.querySelector("[data-kisumu-ward]").value =
-          rentalSearchForm.querySelector("[data-kisumu-ward]").value;
+          reservationDetails.get("pickup-ward") || searchWard || "";
         bookingForm.querySelector("[data-kisumu-ward]").dispatchEvent(new Event("change"));
         bookingForm.querySelector("[data-kisumu-area]").value =
-          rentalSearchForm.querySelector("[data-kisumu-area]").value;
+          reservationDetails.get("pickup-area") ||
+          rentalSearchForm?.querySelector("[data-kisumu-area]")?.value ||
+          "";
       }
 
-      bookingPickupDate.value = pickupDate?.value || "";
-      bookingReturnDate.value = returnDate?.value || "";
+      bookingPickupDate.value =
+        reservationDetails.get("pickup-date") || pickupDate?.value || "";
+      bookingReturnDate.value =
+        reservationDetails.get("return-date") || returnDate?.value || "";
       bookingReturnDate.min = bookingPickupDate.value || today;
 
       if (bookingReturnDate.value && bookingReturnDate.value < bookingReturnDate.min) {
@@ -481,7 +505,14 @@ if (bookingDialog && bookingForm && bookingPickupLocation && bookingPickupDate &
 
     if (requestedCarButton) {
       requestedCarButton.click();
-      window.history.replaceState(null, "", `${window.location.pathname}#featured-car`);
+      const currentDetails = new URLSearchParams(window.location.search);
+      currentDetails.delete("reserve");
+      const detailQuery = currentDetails.toString();
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${detailQuery ? `?${detailQuery}` : ""}#featured-car`
+      );
     }
   }
 }

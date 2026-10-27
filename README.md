@@ -1,60 +1,55 @@
 <div align="center">
-  
-  ![GitHub repo size](https://img.shields.io/github/repo-size/codewithsadee/ridex)
-  ![GitHub stars](https://img.shields.io/github/stars/codewithsadee/ridex?style=social)
-  ![GitHub forks](https://img.shields.io/github/forks/codewithsadee/ridex?style=social)
-[![Twitter Follow](https://img.shields.io/twitter/follow/codewithsadee_?style=social)](https://twitter.com/intent/follow?screen_name=codewithsadee_)
-  [![YouTube Video Views](https://img.shields.io/youtube/views/DJAK-KODM5E?style=social)](https://youtu.be/DJAK-KODM5E)
 
-  <br />
-  <br />
-  
-  <img src="./readme-images/project-logo.png" />
+  <a href="https://github.com/AKOR411/Car-hire">
+    <img src="./assets/images/logo.svg" alt="Akora Prime Wheels" width="300">
+  </a>
 
-  <h2 align="center">Akora - Car rent website</h2>
+  <h1>Akora Prime Wheels</h1>
 
-  Akora is a fully responsive car rental website, <br />responsive for all devices, built using HTML, CSS, and JavaScript.
+  <p>Car hire based in Kisumu, Kenya. Browse manually maintained vehicle listings and send a reservation request directly to Akora.</p>
 
-  <a href="https://codewithsadee.github.io/ridex/"><strong>➥ Live Demo</strong></a>
+  <p>
+    <a href="https://github.com/AKOR411/Car-hire">
+      <img src="https://img.shields.io/github/repo-size/AKOR411/Car-hire?label=repository%20size" alt="GitHub repository size">
+    </a>
+    <a href="https://github.com/AKOR411/Car-hire/stargazers">
+      <img src="https://img.shields.io/github/stars/AKOR411/Car-hire?style=social" alt="GitHub stars">
+    </a>
+    <a href="https://github.com/AKOR411/Car-hire/network/members">
+      <img src="https://img.shields.io/github/forks/AKOR411/Car-hire?style=social" alt="GitHub forks">
+    </a>
+  </p>
+
+  <p><a href="https://github.com/AKOR411/Car-hire"><strong>View the Akora project on GitHub</strong></a></p>
 
 </div>
 
-<br />
+## Project status
 
-### Demo Screeshots
+The website is a static HTML, CSS, and JavaScript project. A public live demo is not currently deployed. The vehicle catalogue is maintained manually and does not provide live availability or confirmed bookings. Reservation requests are sent to Akora by email; payment is due after vehicle delivery.
 
-![Akora Desktop Demo](./readme-images/desktop.png "Desktop Demo")
+## Vehicle listings
 
-### Prerequisites
+The **View more** link opens [`vehicles.html`](./vehicles.html), where visitors can search, filter, and sort the manually maintained listings. When updating a vehicle, keep its details in sync between [`vehicles.html`](./vehicles.html) and the featured cards in [`index.html`](./index.html).
 
-Before you begin, ensure you have met the following requirements:
+## Run locally
 
-* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
-
-### Vehicle Listings
-
-The **View more** link opens `vehicles.html`, where the manually maintained vehicle listings can be searched, filtered, and sorted. Update the catalogue cards in that file and the matching featured cards in `index.html` when adding or changing vehicles. The catalogue is static and does not check live vehicle availability.
-
-### Run Locally
-
-To run **Akora** locally, run this command on your git bash:
-
-Linux and macOS:
+Install [Git](https://git-scm.com/downloads) and [Python 3](https://www.python.org/downloads/), then run:
 
 ```bash
-sudo git clone https://github.com/codewithsadee/ridex.git
+git clone https://github.com/AKOR411/Car-hire.git
+cd Car-hire
+python -m http.server 8000
 ```
 
-Windows:
+Open [http://localhost:8000](http://localhost:8000) in your browser. On Windows, use `py -m http.server 8000` if the `python` command is unavailable.
 
-```bash
-git clone https://github.com/codewithsadee/ridex.git
-```
+## Contact
 
-### Contact
+- Phone / WhatsApp: [+254 705 036 665](https://wa.me/254705036665)
+- Email: [akora.danielfredrick@gmail.com](mailto:akora.danielfredrick@gmail.com)
+- Repository: [github.com/AKOR411/Car-hire](https://github.com/AKOR411/Car-hire)
 
-If you want to contact with me you can reach me at [Twitter](https://www.twitter.com/codewithsadee).
+## License
 
-### License
-
-This project is **free to use** and does not contains any license.
+This repository does not currently include a license file. Usage and redistribution permissions have therefore not been specified.

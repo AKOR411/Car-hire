@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse Akora's manually listed vehicles and send a reservation request.">
+  <title>Explore vehicles | Akora Prime Wheels</title>
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Open+Sans&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="catalog-page">
+  <header class="catalog-header">
+    <div class="container catalog-header-inner">
+      <a href="./index.html#home" class="logo" aria-label="Akora Prime Wheels home">
+        <img src="./assets/images/logo.svg" alt="Akora Prime Wheels logo">
+      </a>
+      <nav class="catalog-nav" aria-label="Main navigation">
+        <a href="./index.html#home">Home</a>
+        <a href="./index.html#service-areas">Service areas</a>
+        <a href="tel:+254705036665">Call Akora</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="catalog-main">
+    <div class="container">
+      <a class="catalog-back-link" href="./index.html#featured-car">&larr; Back to featured cars</a>
+
+      <div class="catalog-heading">
+        <div>
+          <p class="catalog-eyebrow">AKORA PRIME WHEELS</p>
+          <h1 class="h1 catalog-title">Explore our vehicles</h1>
+          <p class="catalog-description">Browse our current vehicle listings and send a reservation request.
+            We will confirm availability, delivery, and final pricing with you.</p>
+        </div>
+        <a class="catalog-contact" href="https://wa.me/254705036665" target="_blank" rel="noopener noreferrer">
+          Need help? WhatsApp Akora
+        </a>
+      </div>
+
+      <div class="catalog-layout">
+        <aside class="catalog-filters" aria-labelledby="filter-title">
+          <div class="catalog-filter-heading">
+            <h2 id="filter-title">Filters</h2>
+            <button type="button" class="catalog-clear" data-clear-filters>Clear all</button>
+          </div>
+
+          <div class="catalog-filter-group">
+            <label for="vehicle-search">Search vehicles</label>
+            <input id="vehicle-search" class="catalog-control" type="search" placeholder="e.g. Toyota RAV4">
+          </div>
+
+          <fieldset class="catalog-filter-group">
+            <legend>Vehicle category</legend>
+            <label class="catalog-check"><input type="checkbox" name="category" value="suv"> SUV</label>
+            <label class="catalog-check"><input type="checkbox" name="category" value="sedan"> Sedan</label>
+            <label class="catalog-check"><input type="checkbox" name="category" value="crossover"> Crossover</label>
+          </fieldset>
+
+          <fieldset class="catalog-filter-group">
+            <legend>Seats</legend>
+            <label class="catalog-check"><input type="checkbox" name="seats" value="4"> 4 seats</label>
+            <label class="catalog-check"><input type="checkbox" name="seats" value="5"> 5 or more seats</label>
+          </fieldset>
+
+          <div class="catalog-filter-group">
+            <label for="max-price">Maximum displayed monthly price</label>
+            <input id="max-price" class="catalog-price-range" type="range" min="350" max="620" step="10" value="620">
+            <output class="catalog-price-output" for="max-price" data-max-price-output>$620 / month</output>
+            <p class="catalog-filter-note">Displayed guide prices are copied from the current featured listings. Confirm the final rate with Akora.</p>
+          </div>
+        </aside>
+
+        <section class="catalog-results" aria-labelledby="results-title">
+          <div class="catalog-results-heading">
+            <div>
+              <h2 id="results-title">Vehicle listings</h2>
+              <p data-results-count aria-live="polite">6 vehicles</p>
+            </div>
+            <label class="catalog-sort-label" for="sort-vehicles">
+              Sort by
+              <select id="sort-vehicles" class="catalog-control">
+                <option value="featured">Featured</option>
+                <option value="price-low">Price: low to high</option>
+                <option value="price-high">Price: high to low</option>
+                <option value="name">Name: A to Z</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="catalog-list" data-catalog-list>
+            <article class="catalog-vehicle" data-vehicle-card data-name="Toyota RAV4" data-category="suv"
+              data-seats="4" data-price="440" data-order="1">
+              <img src="./assets/images/car-1.jpg" alt="Toyota RAV4" loading="lazy" width="160" height="110">
+              <div class="catalog-vehicle-details">
+                <div class="catalog-vehicle-title">
+                  <div><h3>Toyota RAV4</h3><p>2021 · Hybrid · Automatic · 4 seats</p></div>
+                  <span class="catalog-category">SUV</span>
+                </div>
+                <div class="catalog-vehicle-bottom">
+                  <p class="catalog-vehicle-price"><strong>$440</strong> / month</p>
+                  <a class="btn catalog-reserve" href="./index.html?reserve=toyota-rav4#featured-car">Request to reserve</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="catalog-vehicle" data-vehicle-card data-name="BMW 3 Series" data-category="sedan"
+              data-seats="4" data-price="350" data-order="2">
+              <img src="./assets/images/car-2.jpg" alt="BMW 3 Series" loading="lazy" width="160" height="110">
+              <div class="catalog-vehicle-details">
+                <div class="catalog-vehicle-title">
+                  <div><h3>BMW 3 Series</h3><p>2019 · Gasoline · Automatic · 4 seats</p></div>
+                  <span class="catalog-category">Sedan</span>
+                </div>
+                <div class="catalog-vehicle-bottom">
+                  <p class="catalog-vehicle-price"><strong>$350</strong> / month</p>
+                  <a class="btn catalog-reserve" href="./index.html?reserve=bmw-3-series#featured-car">Request to reserve</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="catalog-vehicle" data-vehicle-card data-name="Volkswagen T-Cross" data-category="crossover"
+              data-seats="4" data-price="400" data-order="3">
+              <img src="./assets/images/car-3.jpg" alt="Volkswagen T-Cross" loading="lazy" width="160" height="110">
+              <div class="catalog-vehicle-details">
+                <div class="catalog-vehicle-title">
+                  <div><h3>Volkswagen T-Cross</h3><p>2020 · Gasoline · Automatic · 4 seats</p></div>
+                  <span class="catalog-category">Crossover</span>
+                </div>
+                <div class="catalog-vehicle-bottom">
+                  <p class="catalog-vehicle-price"><strong>$400</strong> / month</p>
+                  <a class="btn catalog-reserve" href="./index.html?reserve=volkswagen-t-cross#featured-car">Request to reserve</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="catalog-vehicle" data-vehicle-card data-name="Cadillac Escalade" data-category="suv"
+              data-seats="4" data-price="620" data-order="4">
+              <img src="./assets/images/car-4.jpg" alt="Cadillac Escalade" loading="lazy" width="160" height="110">
+              <div class="catalog-vehicle-details">
+                <div class="catalog-vehicle-title">
+                  <div><h3>Cadillac Escalade</h3><p>2020 · Gasoline · Automatic · 4 seats</p></div>
+                  <span class="catalog-category">SUV</span>
+                </div>
+                <div class="catalog-vehicle-bottom">
+                  <p class="catalog-vehicle-price"><strong>$620</strong> / month</p>
+                  <a class="btn catalog-reserve" href="./index.html?reserve=cadillac-escalade#featured-car">Request to reserve</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="catalog-vehicle" data-vehicle-card data-name="BMW 4 Series GTI" data-category="sedan"
+              data-seats="4" data-price="530" data-order="5">
+              <img src="./assets/images/car-5.jpg" alt="BMW 4 Series GTI" loading="lazy" width="160" height="110">
+              <div class="catalog-vehicle-details">
+                <div class="catalog-vehicle-title">
+                  <div><h3>BMW 4 Series GTI</h3><p>2021 · Gasoline · Automatic · 4 seats</p></div>
+                  <span class="catalog-category">Sedan</span>
+                </div>
+                <div class="catalog-vehicle-bottom">
+                  <p class="catalog-vehicle-price"><strong>$530</strong> / month</p>
+                  <a class="btn catalog-reserve" href="./index.html?reserve=bmw-4-series-gti#featured-car">Request to reserve</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="catalog-vehicle" data-vehicle-card data-name="BMW 4 Series" data-category="sedan"
+              data-seats="4" data-price="490" data-order="6">
+              <img src="./assets/images/car-6.jpg" alt="BMW 4 Series" loading="lazy" width="160" height="110">
+              <div class="catalog-vehicle-details">
+                <div class="catalog-vehicle-title">
+                  <div><h3>BMW 4 Series</h3><p>2019 · Gasoline · Automatic · 4 seats</p></div>
+                  <span class="catalog-category">Sedan</span>
+                </div>
+                <div class="catalog-vehicle-bottom">
+                  <p class="catalog-vehicle-price"><strong>$490</strong> / month</p>
+                  <a class="btn catalog-reserve" href="./index.html?reserve=bmw-4-series#featured-car">Request to reserve</a>
+                </div>
+              </div>
+            </article>
+
+            <p class="catalog-empty" data-catalog-empty hidden>No vehicles match these filters. Try changing your search.</p>
+          </div>
+          <p class="catalog-manual-note">Vehicle listings are maintained manually. A reservation request does not guarantee availability; Akora will confirm before your trip.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="catalog-footer">
+    <div class="container">
+      <p>Akora Prime Wheels · Kisumu, Kenya</p>
+      <p><a href="tel:+254705036665">+254 705 036 665</a> ·
+        <a href="mailto:akora.danielfredrick@gmail.com">akora.danielfredrick@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script src="./assets/js/vehicles.js"></script>
+</body>
+
+</html>

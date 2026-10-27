@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ridex - Rent your favourite car</title>
+  <title>Akora - Rent your favourite car</title>
 
   <!-- 
     - favicon
@@ -16,6 +16,7 @@
     - custom css link
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
   <!-- 
     - google font link
@@ -37,8 +38,8 @@
 
       <div class="overlay" data-overlay></div>
 
-      <a href="#" class="logo">
-        <img src="./assets/images/logo.svg" alt="Ridex logo">
+      <a href="#home" class="logo" aria-label="Akora Prime Wheels home">
+        <img src="./assets/images/logo.svg" alt="Akora Prime Wheels logo">
       </a>
 
       <nav class="navbar" data-navbar>
@@ -50,6 +51,10 @@
 
           <li>
             <a href="#featured-car" class="navbar-link" data-nav-link>Explore cars</a>
+          </li>
+
+          <li>
+            <a href="#service-areas" class="navbar-link" data-nav-link>Service areas</a>
           </li>
 
           <li>
@@ -66,9 +71,9 @@
       <div class="header-actions">
 
         <div class="header-contact">
-          <a href="tel:88002345678" class="contact-link">8 800 234 56 78</a>
+          <a href="#service-areas" class="contact-link">Kisumu, Kenya</a>
 
-          <span class="contact-time">Mon - Sat: 9:00 am - 6:00 pm</span>
+          <span class="contact-time">Pickup point details confirmed on enquiry</span>
         </div>
 
         <a href="#featured-car" class="btn" aria-labelledby="aria-label-txt">
@@ -107,39 +112,52 @@
         <div class="container">
 
           <div class="hero-content">
-            <h2 class="h1 hero-title">The easy way to takeover a lease</h2>
+            <h2 class="h1 hero-title">Car hire, made easy in Kisumu</h2>
 
             <p class="hero-text">
-              Live in New York, New Jerset and Connecticut!
+              Choose your pickup location and travel dates. Contact Akora to confirm vehicle availability.
             </p>
           </div>
 
           <div class="hero-banner"></div>
 
-          <form action="" class="hero-form">
+          <form action="" class="hero-form" data-rental-search>
 
             <div class="input-wrapper">
-              <label for="input-1" class="input-label">Car, model, or brand</label>
+              <label for="pickup-location" class="input-label">Pickup location</label>
 
-              <input type="text" name="car-model" id="input-1" class="input-field"
-                placeholder="What car are you looking?">
+              <select name="pickup-location" id="pickup-location" class="input-field" required>
+                <option value="Kisumu" selected>Kisumu</option>
+                <option value="Nairobi">Nairobi</option>
+                <option value="Mombasa">Mombasa</option>
+                <option value="Nakuru">Nakuru</option>
+                <option value="Eldoret">Eldoret</option>
+                <option value="Kakamega">Kakamega</option>
+                <option value="Bungoma">Bungoma</option>
+                <option value="Siaya">Siaya</option>
+                <option value="Migori">Migori</option>
+                <option value="Malindi">Malindi</option>
+                <option value="Diani">Diani</option>
+              </select>
             </div>
 
             <div class="input-wrapper">
-              <label for="input-2" class="input-label">Max. monthly payment</label>
+              <label for="pickup-date" class="input-label">Pickup date</label>
 
-              <input type="text" name="monthly-pay" id="input-2" class="input-field" placeholder="Add an amount in $">
+              <input type="date" name="pickup-date" id="pickup-date" class="input-field" required>
             </div>
 
             <div class="input-wrapper">
-              <label for="input-3" class="input-label">Make Year</label>
+              <label for="return-date" class="input-label">Return date</label>
 
-              <input type="text" name="year" id="input-3" class="input-field" placeholder="Add a minimal make year">
+              <input type="date" name="return-date" id="return-date" class="input-field" required>
             </div>
 
-            <button type="submit" class="btn">Search</button>
+            <button type="submit" class="btn">Choose dates</button>
 
           </form>
+
+          <p class="rental-search-message" data-rental-search-message aria-live="polite"></p>
 
         </div>
       </section>
@@ -158,7 +176,7 @@
           <div class="title-wrapper">
             <h2 class="h2 section-title">Featured cars</h2>
 
-            <a href="#" class="featured-car-link">
+            <a href="./vehicles.html" class="featured-car-link">
               <span>View more</span>
 
               <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -223,7 +241,7 @@
                       <ion-icon name="heart-outline"></ion-icon>
                     </button>
 
-                    <button class="btn">Rent now</button>
+                    <button class="btn" type="button" data-reserve-car data-car-id="toyota-rav4">Rent now</button>
 
                   </div>
 
@@ -288,7 +306,7 @@
                       <ion-icon name="heart-outline"></ion-icon>
                     </button>
 
-                    <button class="btn">Rent now</button>
+                    <button class="btn" type="button" data-reserve-car data-car-id="bmw-3-series">Rent now</button>
 
                   </div>
 
@@ -353,7 +371,7 @@
                       <ion-icon name="heart-outline"></ion-icon>
                     </button>
 
-                    <button class="btn">Rent now</button>
+                    <button class="btn" type="button" data-reserve-car data-car-id="volkswagen-t-cross">Rent now</button>
 
                   </div>
 
@@ -418,7 +436,7 @@
                       <ion-icon name="heart-outline"></ion-icon>
                     </button>
 
-                    <button class="btn">Rent now</button>
+                    <button class="btn" type="button" data-reserve-car data-car-id="cadillac-escalade">Rent now</button>
 
                   </div>
 
@@ -483,7 +501,7 @@
                       <ion-icon name="heart-outline"></ion-icon>
                     </button>
 
-                    <button class="btn">Rent now</button>
+                    <button class="btn" type="button" data-reserve-car data-car-id="bmw-4-series-gti">Rent now</button>
 
                   </div>
 
@@ -548,7 +566,7 @@
                       <ion-icon name="heart-outline"></ion-icon>
                     </button>
 
-                    <button class="btn">Rent now</button>
+                    <button class="btn" type="button" data-reserve-car data-car-id="bmw-4-series">Rent now</button>
 
                   </div>
 
@@ -563,6 +581,49 @@
       </section>
 
 
+
+      <section class="section service-map" id="service-areas">
+        <div class="container">
+
+          <div class="service-map-heading">
+            <h2 class="h2 section-title">Explore locations across Kenya</h2>
+            <p class="service-map-description">
+              Kisumu is our starting point. Select a city on the map to set your pickup location.
+              Pins mark city centres; confirm your exact pickup point with Akora.
+            </p>
+          </div>
+
+          <div class="service-map-layout">
+            <div id="service-map" class="service-map-canvas" role="application"
+              aria-label="Interactive map of selected cities in Kenya">
+              <p class="service-map-fallback" data-map-fallback>
+                The interactive map is unavailable. <a href="https://www.openstreetmap.org/?mlat=-0.0917&amp;mlon=34.7680#map=6/-0.0917/34.7680"
+                  target="_blank" rel="noopener noreferrer">Open Kisumu on OpenStreetMap</a>.
+              </p>
+            </div>
+
+            <ul class="service-city-list" aria-label="Pickup city locations">
+              <li><button type="button" class="service-city-button active" data-city="Kisumu">Kisumu</button></li>
+              <li><button type="button" class="service-city-button" data-city="Nairobi">Nairobi</button></li>
+              <li><button type="button" class="service-city-button" data-city="Mombasa">Mombasa</button></li>
+              <li><button type="button" class="service-city-button" data-city="Nakuru">Nakuru</button></li>
+              <li><button type="button" class="service-city-button" data-city="Eldoret">Eldoret</button></li>
+              <li><button type="button" class="service-city-button" data-city="Kakamega">Kakamega</button></li>
+              <li><button type="button" class="service-city-button" data-city="Bungoma">Bungoma</button></li>
+              <li><button type="button" class="service-city-button" data-city="Siaya">Siaya</button></li>
+              <li><button type="button" class="service-city-button" data-city="Migori">Migori</button></li>
+              <li><button type="button" class="service-city-button" data-city="Malindi">Malindi</button></li>
+              <li><button type="button" class="service-city-button" data-city="Diani">Diani</button></li>
+            </ul>
+          </div>
+
+          <p class="map-attribution">
+            Map data &copy; <a href="https://www.openstreetmap.org/copyright"
+              target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>.
+          </p>
+
+        </div>
+      </section>
 
 
 
@@ -891,14 +952,13 @@
       <div class="footer-top">
 
         <div class="footer-brand">
-          <a href="#" class="logo">
-            <img src="./assets/images/logo.svg" alt="Ridex logo">
+          <a href="#" class="logo" aria-label="Akora Prime Wheels home">
+            <img src="./assets/images/logo.svg" alt="Akora Prime Wheels logo">
           </a>
 
           <p class="footer-text">
-            Search for cheap rental cars in New York. With a diverse fleet of 19,000 vehicles, Waydex offers its
-            consumers an
-            attractive and fun selection.
+            Akora is based in Kisumu, Kenya. Choose your pickup location and travel dates, then contact us to confirm
+            vehicle availability and pickup details.
           </p>
         </div>
 
@@ -953,39 +1013,39 @@
         <ul class="footer-list">
 
           <li>
-            <p class="footer-list-title">Neighborhoods in New York</p>
+            <p class="footer-list-title">Locations in Kenya</p>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Manhattan</a>
+            <a href="#service-areas" class="footer-link">Kisumu</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Central New York City</a>
+            <a href="#service-areas" class="footer-link">Nairobi</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Upper East Side</a>
+            <a href="#service-areas" class="footer-link">Mombasa</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Queens</a>
+            <a href="#service-areas" class="footer-link">Nakuru</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Theater District</a>
+            <a href="#service-areas" class="footer-link">Eldoret</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Midtown</a>
+            <a href="#service-areas" class="footer-link">Kakamega</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">SoHo</a>
+            <a href="#service-areas" class="footer-link">Bungoma</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">Chelsea</a>
+            <a href="#service-areas" class="footer-link">Siaya, Migori, Malindi &amp; Diani</a>
           </li>
 
         </ul>
@@ -1035,13 +1095,110 @@
         </ul>
 
         <p class="copyright">
-          &copy; 2022 <a href="#">codewithsadee</a>. All Rights Reserved
+          &copy; 2026 Akora Prime Wheels. All rights reserved.
         </p>
 
       </div>
 
     </div>
   </footer>
+
+  <dialog class="booking-dialog" data-booking-dialog aria-labelledby="booking-title">
+    <div class="booking-dialog-header">
+      <div>
+        <p class="booking-eyebrow">AKORA RESERVATIONS</p>
+        <h2 class="h2 booking-title" id="booking-title">Request this car</h2>
+      </div>
+      <button class="booking-close" type="button" data-booking-close aria-label="Close reservation form">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+    </div>
+
+    <div class="booking-car-summary" data-booking-car-summary aria-live="polite">
+      Choose a car to begin your reservation.
+    </div>
+
+    <p class="booking-payment-note">
+      No online payment is taken. We will contact you to confirm your request; payment is due only after the car is delivered.
+    </p>
+
+    <form class="booking-form" data-booking-form>
+      <input type="hidden" name="Vehicle" data-booking-vehicle>
+      <input type="hidden" name="Displayed price" data-booking-price>
+      <input type="hidden" name="_subject" value="New Akora vehicle reservation request">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="Payment terms" value="Payment is due after vehicle delivery. No online payment was collected.">
+
+      <div class="booking-field">
+        <label for="booking-name">Full name</label>
+        <input id="booking-name" name="name" type="text" autocomplete="name" required maxlength="100">
+      </div>
+
+      <div class="booking-field">
+        <label for="booking-email">Email address</label>
+        <input id="booking-email" name="email" type="email" autocomplete="email" required maxlength="254">
+      </div>
+
+      <div class="booking-field">
+        <label for="booking-phone">Phone / WhatsApp</label>
+        <input id="booking-phone" name="Phone / WhatsApp" type="tel" autocomplete="tel" required
+          placeholder="+254 7XX XXX XXX" maxlength="24">
+      </div>
+
+      <div class="booking-field">
+        <label for="booking-location">Pickup location</label>
+        <select id="booking-location" name="Pickup location" required>
+          <option value="Kisumu">Kisumu</option>
+          <option value="Nairobi">Nairobi</option>
+          <option value="Mombasa">Mombasa</option>
+          <option value="Nakuru">Nakuru</option>
+          <option value="Eldoret">Eldoret</option>
+          <option value="Kakamega">Kakamega</option>
+          <option value="Bungoma">Bungoma</option>
+          <option value="Siaya">Siaya</option>
+          <option value="Migori">Migori</option>
+          <option value="Malindi">Malindi</option>
+          <option value="Diani">Diani</option>
+        </select>
+      </div>
+
+      <div class="booking-field">
+        <label for="booking-pickup-date">Pickup date</label>
+        <input id="booking-pickup-date" name="Pickup date" type="date" required>
+      </div>
+
+      <div class="booking-field">
+        <label for="booking-return-date">Return date</label>
+        <input id="booking-return-date" name="Return date" type="date" required>
+      </div>
+
+      <div class="booking-field booking-field-full">
+        <label for="booking-notes">Trip details <span>(optional)</span></label>
+        <textarea id="booking-notes" name="Trip details" rows="3" maxlength="1000"
+          placeholder="Tell us about your destination, delivery needs, or questions."></textarea>
+      </div>
+
+      <div class="booking-field booking-field-full">
+        <label class="booking-consent">
+          <input type="checkbox" name="Contact consent" value="Yes" required>
+          <span>I agree to send these details to Akora through FormSubmit so they can respond to my reservation request.</span>
+        </label>
+      </div>
+
+      <button class="btn booking-submit booking-field-full" type="submit" data-booking-submit>
+        Send reservation request
+      </button>
+    </form>
+
+    <p class="booking-status" data-booking-status role="status" aria-live="polite"></p>
+
+    <div class="booking-contact">
+      <span>Need help?</span>
+      <a href="tel:+254705036665">+254 705 036 665</a>
+      <a href="https://wa.me/254705036665" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="mailto:akora.danielfredrick@gmail.com">akora.danielfredrick@gmail.com</a>
+    </div>
+  </dialog>
 
 
 
@@ -1050,6 +1207,7 @@
   <!-- 
     - custom js link
   -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="./assets/js/script.js"></script>
 
   <!-- 

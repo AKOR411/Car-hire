@@ -1,9 +1,9 @@
-Ridex - Rent your favourite car
+Akora - Rent your favourite car
 
 
 # HEADER
 
-alt = Ridex logo
+alt = Akora logo
 
 Home
 Explore cars
@@ -205,7 +205,7 @@ New rules for handling our cars
 
 # FOOTER
 
-alt = Ridex logo
+alt = Akora logo
 
 Search for cheap rental cars in New York. With a diverse fleet of 19,000 vehicles, Waydex offers its consumers an attractive and fun selection.
 

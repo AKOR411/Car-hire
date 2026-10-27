@@ -2607,3 +2607,178 @@ body > .footer .footer-bottom {
   border-top: 1px solid hsla(0, 0%, 100%, 0.14);
   border-radius: 0;
 }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .rental-search-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rental-search-form .btn {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    gap: 12px;
+    padding-block: 84px 18px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    padding-block: 8px 12px;
+  }
+
+  .hero-title {
+    max-width: 20ch;
+    font-size: clamp(2rem, 7vw, 2.8rem);
+  }
+
+  .hero-text {
+    max-width: 58ch;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .hero-banner {
+    background-position: 62% center;
+  }
+
+  .hero-banner::after { display: none; }
+
+  .hero .rental-search-section {
+    width: 100%;
+    margin-inline: 0;
+  }
+
+  .rental-search-section .container {
+    padding-inline: 0;
+  }
+
+  .rental-search-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rental-search-form .input-wrapper,
+  .rental-search-form .input-wrapper:not(:last-of-type):not(.rental-detail-field) {
+    border-right: 0;
+    border-bottom: 1px solid hsla(0, 0%, 0%, 0.08);
+  }
+
+  .rental-search-form .btn {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .rental-search-form .rental-detail-field {
+    grid-column: auto;
+  }
+
+  .catalog-header-inner {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-block: 10px;
+  }
+
+  .catalog-nav {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .catalog-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .catalog-vehicle,
+  .catalog-vehicle-details {
+    min-width: 0;
+  }
+
+  .network-form-heading,
+  .network-review-heading {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .header .container {
+    gap: 8px;
+  }
+
+  .header .logo {
+    width: 86px;
+    min-width: 86px;
+  }
+
+  .header-actions {
+    gap: 7px;
+  }
+
+  .header-actions > .btn {
+    --height: 38px;
+  }
+
+  .header-actions .network-nav-btn {
+    padding-inline: 10px;
+    font-size: 0.72rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 8vw, 2.25rem);
+  }
+
+  .hero .container {
+    padding-inline: 12px;
+  }
+
+  .rental-search-form .btn {
+    --width: calc(100% - 24px);
+    margin: 12px;
+  }
+
+  .catalog-header .logo {
+    width: 100px;
+    min-width: 100px;
+  }
+
+  .catalog-nav {
+    gap: 8px;
+  }
+
+  .catalog-nav a {
+    font-size: 0.7rem;
+  }
+
+  .catalog-results {
+    padding: 12px;
+  }
+
+  .catalog-vehicle {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .catalog-vehicle > img {
+    height: 180px;
+  }
+
+  .network-hero {
+    min-height: 0;
+    padding-block: 32px;
+    background-position: 62% center;
+  }
+
+  .network-title {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+  }
+
+  .network-form-heading,
+  .network-review-heading {
+    gap: 10px;
+  }
+
+  .network-rate-field {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

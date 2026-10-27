@@ -405,22 +405,32 @@ button, a { transition: var(--transition); }
   background: var(--space-cadet);
 }
 
-.hero-content { max-width: 760px; }
+.hero-content {
+  max-width: 900px;
+  padding-block: 8px 42px;
+}
 
 .hero-title {
-  max-width: 15ch;
-  margin-bottom: 15px;
+  max-width: 26ch;
+  margin-bottom: 12px;
   color: var(--white);
-  font-size: clamp(2.5rem, 5vw, 4.25rem);
-  line-height: 1.12;
+  font-family: var(--ff-open-sans);
+  font-size: clamp(2.25rem, 3.8vw, 3.65rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.14;
+  text-shadow: 0 2px 16px hsla(218, 48%, 5%, 0.3);
+  text-transform: none;
 }
 
 .hero-text {
-  max-width: 48ch;
-  color: hsla(0, 0%, 100%, 0.88);
-  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
-  line-height: 1.8;
-  margin-bottom: 30px;
+  max-width: 68ch;
+  margin-bottom: 20px;
+  color: hsla(0, 0%, 100%, 0.96);
+  font-family: var(--ff-open-sans);
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.65;
+  text-shadow: 0 1px 10px hsla(218, 48%, 5%, 0.48);
 }
 
 .hero-banner {
@@ -432,7 +442,17 @@ button, a { transition: var(--transition); }
   border-radius: 0;
   background:
     linear-gradient(90deg, hsla(218, 48%, 10%, 0.88) 0%, hsla(218, 48%, 10%, 0.58) 48%, hsla(218, 48%, 10%, 0.2) 100%),
-    url("../images/hero-banner.jpg") center / cover no-repeat;
+    url("../images/home-hero-fortuner.png") center center / cover no-repeat;
+}
+
+.hero-banner::after {
+  position: absolute;
+  inset: 0;
+  display: none;
+  background:
+    linear-gradient(90deg, hsla(218, 48%, 10%, 0.18), hsla(218, 48%, 10%, 0.08)),
+    url("../images/home-hero-fortuner.png") center / contain no-repeat;
+  content: "";
 }
 
 .rental-search-form {
@@ -2382,7 +2402,12 @@ button, a { transition: var(--transition); }
 
   .hero {
     min-height: clamp(540px, 64vh, 680px);
-    margin-bottom: 48px;
+    margin-bottom: 0;
+  }
+
+  .hero-content {
+    max-width: 980px;
+    padding-block: 0 56px;
   }
 
   .hero > .container {
@@ -2393,11 +2418,17 @@ button, a { transition: var(--transition); }
 
   .hero .rental-search-section {
     position: absolute;
-    bottom: -22px;
+    bottom: 0;
     left: 50%;
     width: min(calc(100% - 48px), 1110px);
     margin: 0;
     transform: translateX(-50%);
+  }
+
+  .hero-banner::after {
+    display: block;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
   }
 
   .service-map-layout {

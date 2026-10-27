@@ -370,7 +370,7 @@ if (bookingDialog && bookingForm && bookingPickupLocation && bookingPickupDate &
       bookingCarSummary.textContent = `${vehicle} · ${carPrice}`;
       bookingVehicleField.value = vehicle;
       bookingPriceField.value = carPrice;
-      bookingPickupLocation.value = pickupLocation?.value || "Kisumu";
+      bookingPickupLocation.value = pickupLocation ? pickupLocation.value : "";
       updateKisumuPickupDetails(bookingForm, bookingPickupLocation);
 
       if (bookingPickupLocation.value === "Kisumu" && rentalSearchForm) {

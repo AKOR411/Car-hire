@@ -32,6 +32,10 @@ The website is a static HTML, CSS, and JavaScript project. A public live demo is
 
 The **View more** link opens [`vehicles.html`](./vehicles.html), where visitors can search, filter, and sort the manually maintained listings. Displayed rates are in Kenyan shillings (KES) per day and should be kept in sync between [`vehicles.html`](./vehicles.html) and the featured cards in [`index.html`](./index.html). Confirm the applicable vehicle rate and terms with Akora when handling each reservation.
 
+## Careers and partnerships
+
+The navigation briefcase opens [`join-network.html`](./join-network.html), with registration forms for drivers, vehicle owners, influencers, and business partners. Applications are submitted to the configured Formspree endpoint and emailed to the Akora account; this static site has no private application database or admin review dashboard. Supporting uploads are optional and limited in the browser to PDF, JPG, and PNG files up to 5 MB each (10 MB total); Formspree account settings must permit file uploads for attachments to be accepted. Vehicle owners submit one vehicle per application and can submit another form for additional vehicles.
+
 ## Run locally
 
 Install [Git](https://git-scm.com/downloads) and [Python 3](https://www.python.org/downloads/), then run:

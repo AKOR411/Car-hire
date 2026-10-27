@@ -22,6 +22,25 @@ for (let i = 0; i < navbarLinks.length; i++) {
   navbarLinks[i].addEventListener("click", navToggleFunc);
 }
 
+const featuredCarFilters = document.querySelectorAll("[data-vehicle-filter]");
+const featuredCarItems = document.querySelectorAll(".featured-car-list > li[data-vehicle-category]");
+
+featuredCarFilters.forEach(function (filter) {
+  filter.addEventListener("click", function () {
+    const category = filter.dataset.vehicleFilter;
+
+    featuredCarFilters.forEach(function (button) {
+      const isActive = button === filter;
+      button.classList.toggle("active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+
+    featuredCarItems.forEach(function (item) {
+      item.hidden = category !== "all" && item.dataset.vehicleCategory !== category;
+    });
+  });
+});
+
 
 
 /**
@@ -46,6 +65,99 @@ const pickupLocation = document.querySelector("#pickup-location");
 const pickupDate = document.querySelector("#pickup-date");
 const returnDate = document.querySelector("#return-date");
 const rentalSearchMessage = document.querySelector("[data-rental-search-message]");
+
+const kisumuWardsBySubcounty = {
+  "Kisumu Central": ["Railways", "Migosi", "Shaurimoyo-Kaloleni", "Market Milimani", "Kondele", "Nyalenda B"],
+  "Kisumu East": ["Kajulu", "Kolwa East", "Manyatta B", "Nyalenda A", "Kolwa Central"],
+  "Kisumu West": ["South West Kisumu", "Central Kisumu", "Kisumu North", "West Kisumu", "North West Kisumu"],
+  Muhoroni: ["Miwani", "Ombeyi", "Masogo/Nyang'oma", "Chemelil", "Muhoroni/Koru"],
+  Nyakach: ["South West Nyakach", "North Nyakach", "Central Nyakach", "West Nyakach", "South East Nyakach"],
+  Nyando: ["East Kano/Wawidhi", "Awasi/Onjiko", "Ahero", "Kabonyo/Kanyagwal", "Kobura"],
+  Seme: ["West Seme", "Central Seme", "East Seme", "North Seme", "South East Seme"],
+};
+
+const populateKisumuWards = function (form, subcounty) {
+  const wardSelect = form.querySelector("[data-kisumu-ward]");
+
+  if (!wardSelect) {
+    return;
+  }
+
+  wardSelect.replaceChildren(new Option("Select ward", ""));
+  (kisumuWardsBySubcounty[subcounty] || []).forEach(function (ward) {
+    wardSelect.add(new Option(ward, ward));
+  });
+  wardSelect.dataset.subcounty = subcounty;
+};
+
+const updateKisumuPickupDetails = function (form, citySelect) {
+  const isKisumu = citySelect.value === "Kisumu";
+  const detailGroups = form.querySelectorAll(
+    "[data-rental-kisumu-details], [data-booking-kisumu-details]"
+  );
+  const subcountySelect = form.querySelector("[data-kisumu-subcounty]");
+  const wardSelect = form.querySelector("[data-kisumu-ward]");
+  const areaInput = form.querySelector("[data-kisumu-area]");
+
+  detailGroups.forEach(function (group) {
+    group.hidden = !isKisumu;
+  });
+
+  if (subcountySelect) {
+    subcountySelect.required = isKisumu;
+    if (!isKisumu) {
+      subcountySelect.value = "";
+    }
+  }
+
+  if (wardSelect && subcountySelect) {
+    if (!isKisumu) {
+      wardSelect.value = "";
+    }
+
+    if (wardSelect.dataset.subcounty !== subcountySelect.value) {
+      populateKisumuWards(form, subcountySelect.value);
+    }
+
+    const wardGroup = form.querySelector("[data-kisumu-ward-group]");
+    if (wardGroup) {
+      wardGroup.hidden = !isKisumu || !subcountySelect.value;
+    }
+    wardSelect.required = isKisumu && Boolean(subcountySelect.value);
+  }
+
+  if (areaInput) {
+    const areaGroup = form.querySelector("[data-kisumu-area-group]");
+    if (!isKisumu || !wardSelect?.value) {
+      areaInput.value = "";
+    }
+    if (areaGroup) {
+      areaGroup.hidden = !isKisumu || !wardSelect?.value;
+    }
+    areaInput.required = isKisumu && Boolean(wardSelect?.value);
+  }
+};
+
+const setupKisumuPickupDetails = function (form, citySelect) {
+  const subcountySelect = form.querySelector("[data-kisumu-subcounty]");
+  const wardSelect = form.querySelector("[data-kisumu-ward]");
+
+  subcountySelect?.addEventListener("change", function () {
+    populateKisumuWards(form, subcountySelect.value);
+    updateKisumuPickupDetails(form, citySelect);
+  });
+  wardSelect?.addEventListener("change", function () {
+    updateKisumuPickupDetails(form, citySelect);
+  });
+  citySelect.addEventListener("change", function () {
+    updateKisumuPickupDetails(form, citySelect);
+  });
+  updateKisumuPickupDetails(form, citySelect);
+};
+
+if (pickupLocation && rentalSearchForm) {
+  setupKisumuPickupDetails(rentalSearchForm, pickupLocation);
+}
 
 const formatLocalDate = function (date) {
   const year = date.getFullYear();
@@ -79,8 +191,13 @@ if (pickupDate && returnDate && rentalSearchForm && rentalSearchMessage) {
       return;
     }
 
+    const pickupDetails = pickupLocation.value === "Kisumu"
+      ? ` in ${rentalSearchForm.querySelector("[data-kisumu-subcounty]").value}, ${
+        rentalSearchForm.querySelector("[data-kisumu-ward]").value
+      }, ${rentalSearchForm.querySelector("[data-kisumu-area]").value}`
+      : "";
     rentalSearchMessage.textContent =
-      "Dates selected. Live vehicle availability is not connected yet; contact Akora to confirm your booking.";
+      `Dates selected for ${pickupLocation.value}${pickupDetails}. Live vehicle availability is not connected yet; contact Akora to confirm your booking.`;
   });
 }
 
@@ -195,6 +312,10 @@ const bookingStatus = document.querySelector("[data-booking-status]");
 const bookingSubmitButton = document.querySelector("[data-booking-submit]");
 const bookingCloseButton = document.querySelector("[data-booking-close]");
 
+if (bookingForm && bookingPickupLocation) {
+  setupKisumuPickupDetails(bookingForm, bookingPickupLocation);
+}
+
 const setBookingStatus = function (message, state) {
   if (!bookingStatus) {
     return;
@@ -209,7 +330,7 @@ const setBookingStatus = function (message, state) {
   }
 };
 
-if (bookingDialog && bookingForm && bookingPickupDate && bookingReturnDate) {
+if (bookingDialog && bookingForm && bookingPickupLocation && bookingPickupDate && bookingReturnDate) {
   const today = formatLocalDate(new Date());
   bookingPickupDate.min = today;
   bookingReturnDate.min = today;
@@ -250,6 +371,19 @@ if (bookingDialog && bookingForm && bookingPickupDate && bookingReturnDate) {
       bookingVehicleField.value = vehicle;
       bookingPriceField.value = carPrice;
       bookingPickupLocation.value = pickupLocation?.value || "Kisumu";
+      updateKisumuPickupDetails(bookingForm, bookingPickupLocation);
+
+      if (bookingPickupLocation.value === "Kisumu" && rentalSearchForm) {
+        const bookingSubcounty = bookingForm.querySelector("[data-kisumu-subcounty]");
+        bookingSubcounty.value = rentalSearchForm.querySelector("[data-kisumu-subcounty]").value;
+        bookingSubcounty.dispatchEvent(new Event("change"));
+        bookingForm.querySelector("[data-kisumu-ward]").value =
+          rentalSearchForm.querySelector("[data-kisumu-ward]").value;
+        bookingForm.querySelector("[data-kisumu-ward]").dispatchEvent(new Event("change"));
+        bookingForm.querySelector("[data-kisumu-area]").value =
+          rentalSearchForm.querySelector("[data-kisumu-area]").value;
+      }
+
       bookingPickupDate.value = pickupDate?.value || "";
       bookingReturnDate.value = returnDate?.value || "";
       bookingReturnDate.min = bookingPickupDate.value || today;
@@ -278,6 +412,7 @@ if (bookingDialog && bookingForm && bookingPickupDate && bookingReturnDate) {
 
   bookingDialog.addEventListener("close", function () {
     bookingForm.reset();
+    updateKisumuPickupDetails(bookingForm, bookingPickupLocation);
     bookingForm.hidden = false;
     bookingSubmitButton.disabled = false;
     bookingSubmitButton.textContent = "Send reservation request";

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Register your interest in driving, listing a vehicle, creating content, or partnering with Akora Prime Wheels.">
+  <title>Join the Akora Prime Wheels Network</title>
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css?v=20261027-network-hero">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Open+Sans&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="network-page">
+  <header class="catalog-header">
+    <div class="container catalog-header-inner">
+      <a href="./index.html#home" class="logo" aria-label="Akora Prime Wheels home">
+        <img src="./assets/images/logo.svg" alt="Akora Prime Wheels logo">
+      </a>
+      <nav class="catalog-nav" aria-label="Main navigation">
+        <a href="./index.html#home">Home</a>
+        <a href="./index.html#featured-car">Explore cars</a>
+        <a href="tel:+254705036665">Call Akora</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="network-main">
+    <section class="network-hero" aria-labelledby="network-title">
+      <div class="container network-hero-inner">
+        <a class="catalog-back-link" href="./index.html#home">&larr; Back to Akora Prime Wheels</a>
+        <p class="catalog-eyebrow">CAREERS &amp; PARTNERSHIPS</p>
+        <h1 class="h1 network-title" id="network-title">Join the Akora Prime Wheels Network</h1>
+        <p class="network-intro">
+          Drive with us, list your vehicle, promote our brand, or grow your business through our platform.
+        </p>
+        <div class="network-trust-note">
+          <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+          <span>Locally connected in Kisumu, Kenya</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="network-options-section" aria-labelledby="network-options-title">
+      <div class="container">
+        <div class="network-section-heading">
+          <p class="catalog-eyebrow">FIND YOUR FIT</p>
+          <h2 class="h2" id="network-options-title">How would you like to work with us?</h2>
+          <p>Choose an option to see the relevant registration form.</p>
+        </div>
+
+        <div class="network-options">
+          <article class="network-option-card">
+            <span class="network-option-icon"><ion-icon name="car-sport-outline" aria-hidden="true"></ion-icon></span>
+            <h3>Driver registration</h3>
+            <p>Interested in driving or providing chauffeur services through Akora?</p>
+            <button type="button" class="btn network-register-btn" data-open-registration="driver">
+              Register as a driver
+            </button>
+          </article>
+
+          <article class="network-option-card">
+            <span class="network-option-icon"><ion-icon name="key-outline" aria-hidden="true"></ion-icon></span>
+            <h3>Vehicle owner</h3>
+            <p>Share your vehicle details and explore listing it for hire with Akora.</p>
+            <button type="button" class="btn network-register-btn" data-open-registration="owner">
+              List a vehicle
+            </button>
+          </article>
+
+          <article class="network-option-card">
+            <span class="network-option-icon"><ion-icon name="camera-outline" aria-hidden="true"></ion-icon></span>
+            <h3>Influencer &amp; creator</h3>
+            <p>Pitch a creative collaboration to introduce more people to Akora.</p>
+            <button type="button" class="btn network-register-btn" data-open-registration="creator">
+              Register as a creator
+            </button>
+          </article>
+
+          <article class="network-option-card">
+            <span class="network-option-icon"><ion-icon name="business-outline" aria-hidden="true"></ion-icon></span>
+            <h3>Business partner</h3>
+            <p>Explore a commercial partnership for your company or organisation.</p>
+            <button type="button" class="btn network-register-btn" data-open-registration="partner">
+              Become a partner
+            </button>
+          </article>
+        </div>
+
+        <section class="network-form-panel" data-registration-panel hidden aria-labelledby="registration-form-title">
+          <div class="network-form-heading">
+            <div>
+              <p class="catalog-eyebrow">YOUR APPLICATION</p>
+              <h2 class="h2" id="registration-form-title">Registration details</h2>
+              <p>Fields marked <span aria-hidden="true">*</span> are required. You can provide supporting documents later.</p>
+            </div>
+            <button type="button" class="network-close-form" data-close-registration aria-label="Close registration form">
+              <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+            </button>
+          </div>
+
+          <form class="network-form" data-registration-form="driver" data-registration-title="Driver Registration" hidden>
+            <input type="hidden" name="Application category" value="Driver Registration">
+            <input type="hidden" name="_subject" value="Akora network application: Driver">
+            <div class="network-field">
+              <label for="driver-name">Full name <span>*</span></label>
+              <input id="driver-name" name="Full name" autocomplete="name" required maxlength="120">
+            </div>
+            <div class="network-field">
+              <label for="driver-phone">Phone number <span>*</span></label>
+              <input id="driver-phone" name="Phone number" type="tel" autocomplete="tel" required maxlength="30">
+            </div>
+            <div class="network-field">
+              <label for="driver-email">Email address <span>*</span></label>
+              <input id="driver-email" name="Email address" type="email" autocomplete="email" required maxlength="254">
+            </div>
+            <div class="network-field">
+              <label for="driver-location">Current location <span>*</span></label>
+              <input id="driver-location" name="Current location" autocomplete="address-level2" required maxlength="120">
+            </div>
+            <div class="network-field">
+              <label for="driver-licence">Driving licence number <span>*</span></label>
+              <input id="driver-licence" name="Driving licence number" required maxlength="80">
+            </div>
+            <div class="network-field">
+              <label for="driver-licence-class">Licence class <span>*</span></label>
+              <input id="driver-licence-class" name="Driving licence class" required maxlength="60"
+                placeholder="e.g. B, C1">
+            </div>
+            <div class="network-field">
+              <label for="driver-experience">Years of driving experience <span>*</span></label>
+              <input id="driver-experience" name="Years of driving experience" type="number" min="0" max="70" required>
+            </div>
+            <div class="network-field network-field-wide">
+              <label for="driver-documents">Driving licence document <span class="network-optional">optional</span></label>
+              <input id="driver-documents" name="Driving licence document" type="file" accept=".pdf,.jpg,.jpeg,.png"
+                data-application-files>
+              <small>PDF, JPG, or PNG. Maximum 5 MB per file and 10 MB per application.</small>
+            </div>
+            <div class="network-field network-field-wide">
+              <label for="driver-introduction">Introduction or relevant work experience <span>*</span></label>
+              <textarea id="driver-introduction" name="Introduction or work experience" required maxlength="1500"
+                rows="4" placeholder="Tell us briefly about your driving experience or chauffeur services."></textarea>
+            </div>
+            <div class="network-consent network-field-wide">
+              <label><input type="checkbox" name="Application data consent" value="Agreed" required>
+                <span>I agree that Akora may use these details to review my application and contact me about it. <span>*</span></span>
+              </label>
+            </div>
+            <p class="network-status network-field-wide" data-registration-status role="status" aria-live="polite"></p>
+            <button class="btn network-submit network-field-wide" type="submit">Review application</button>
+          </form>
+
+          <form class="network-form" data-registration-form="owner" data-registration-title="Vehicle Owner Registration" hidden>
+            <input type="hidden" name="Application category" value="Vehicle Owner Registration">
+            <input type="hidden" name="_subject" value="Akora network application: Vehicle owner">
+            <div class="network-field">
+              <label for="owner-name">Owner's full name or business name <span>*</span></label>
+              <input id="owner-name" name="Owner or business name" required maxlength="150">
+            </div>
+            <div class="network-field">
+              <label for="owner-phone">Phone number <span>*</span></label>
+              <input id="owner-phone" name="Phone number" type="tel" autocomplete="tel" required maxlength="30">
+            </div>
+            <div class="network-field">
+              <label for="owner-email">Email address <span>*</span></label>
+              <input id="owner-email" name="Email address" type="email" autocomplete="email" required maxlength="254">
+            </div>
+            <div class="network-field">
+              <label for="owner-location">Location <span>*</span></label>
+              <input id="owner-location" name="Location" required maxlength="120">
+            </div>
+            <div class="network-field">
+              <label for="owner-make-model">Vehicle make and model <span>*</span></label>
+              <input id="owner-make-model" name="Vehicle make and model" required maxlength="120">
+            </div>
+            <div class="network-field">
+              <label for="owner-year">Year of manufacture <span>*</span></label>
+              <input id="owner-year" name="Year of manufacture" type="number" min="1950" max="2026" required>
+            </div>
+            <div class="network-field">
+              <label for="owner-registration">Vehicle registration number <span>*</span></label>
+              <input id="owner-registration" name="Vehicle registration number" required maxlength="30">
+            </div>
+            <div class="network-field">
+              <label for="owner-type-seats">Vehicle type and seating capacity <span>*</span></label>
+              <input id="owner-type-seats" name="Vehicle type and seating capacity" required maxlength="100"
+                placeholder="e.g. SUV, 5 seats">
+            </div>
+            <div class="network-field">
+              <label for="owner-transmission">Transmission <span>*</span></label>
+              <select id="owner-transmission" name="Transmission" required>
+                <option value="">Select transmission</option>
+                <option>Automatic</option>
+                <option>Manual</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="network-field">
+              <label for="owner-rate">Indicative hire rate <span class="network-optional">optional</span></label>
+              <div class="network-rate-field">
+                <input id="owner-rate" name="Indicative hire rate" type="number" min="0" step="1" placeholder="Amount">
+                <select name="Rate period" aria-label="Hire rate period">
+                  <option value="per day">KES per day</option>
+                  <option value="per hour">KES per hour</option>
+                </select>
+              </div>
+            </div>
+            <div class="network-field network-field-wide">
+              <label for="owner-photos">Vehicle photographs <span class="network-optional">optional</span></label>
+              <input id="owner-photos" name="Vehicle photographs" type="file" accept=".jpg,.jpeg,.png"
+                multiple data-application-files>
+              <small>JPG or PNG. Maximum 5 MB per file and 10 MB total. Submit one vehicle per application.</small>
+            </div>
+            <div class="network-field network-field-wide">
+              <label for="owner-documents">Proof of ownership or insurance <span class="network-optional">optional</span></label>
+              <input id="owner-documents" name="Ownership or insurance documents" type="file"
+                accept=".pdf,.jpg,.jpeg,.png" multiple data-application-files>
+              <small>Supporting documents can also be provided after Akora responds.</small>
+            </div>
+            <div class="network-field network-field-wide">
+              <label for="owner-availability">Availability and preferred hire arrangements <span>*</span></label>
+              <textarea id="owner-availability" name="Availability and hire arrangements" required maxlength="1500"
+                rows="3"></textarea>
+            </div>
+            <div class="network-consent network-field-wide">
+              <label><input type="checkbox" name="Application data consent" value="Agreed" required>
+                <span>I agree that Akora may use these details to review my application and contact me about it. <span>*</span></span>
+              </label>
+            </div>
+            <p class="network-status network-field-wide" data-registration-status role="status" aria-live="polite"></p>
+            <button class="btn network-submit network-field-wide" type="submit">Review application</button>
+          </form>
+
+          <form class="network-form" data-registration-form="creator" data-registration-title="Influencer Registration" hidden>
+            <input type="hidden" name="Application category" value="Influencer Registration">
+            <input type="hidden" name="_subject" value="Akora network application: Creator">
+            <div class="network-field">
+              <label for="creator-name">Full name or creator/brand name <span>*</span></label>
+              <input id="creator-name" name="Full name or creator name" required maxlength="150">
+            </div>
+            <div class="network-field">
+              <label for="creator-phone">Phone number <span>*</span></label>
+              <input id="creator-phone" name="Phone number" type="tel" autocomplete="tel" required maxlength="30">
+            </div>
+            <div class="network-field">
+              <label for="creator-email">Email address <span>*</span></label>
+              <input id="creator-email" name="Email address" type="email" autocomplete="email" required maxlength="254">
+            </div>
+            <div class="network-field">
+              <label for="creator-location">Location <span>*</span></label>
+              <input id="creator-location" name="Location" required maxlength="120">
+            </div>
+            <div class="network-field">
+              <label for="creator-platforms">Social platforms <span>*</span></label>
+              <input id="creator-platforms" name="Social media platforms" required maxlength="200"
+                placeholder="e.g. Instagram, TikTok, YouTube">
+            </div>
+            <div class="network-field">
+              <label for="creator-profiles">Profile links or handles <span>*</span></label>
+              <input id="creator-profiles" name="Profile links or handles" required maxlength="500">
+            </div>
+            <div class="network-field">
+              <label for="creator-audience">Approximate audience size <span>*</span></label>
+              <input id="creator-audience" name="Approximate audience size" required maxlength="80"
+                placeholder="e.g. 12,000 across all platforms">
+            </div>
+            <div class="network-field">
+              <label for="creator-niche">Content niche <span>*</span></label>
+              <input id="creator-niche" name="Content niche" required maxlength="150"
+                placeholder="e.g. travel, lifestyle, motoring">
+            </div>
+            <div class="network-field network-field-wide">
+              <label for="creator-experience">Previous collaboration experience <span class="network-optional">optional</span></label>
+              <textarea id="creator-experience" name="Previous collaboration experience" maxlength="1200" rows="3"></textarea>
+            </div>
+            <div class="network-field network-field-wide">
+              <label for="creator-idea">Proposed collaboration or marketing idea <span>*</span></label>
+              <textarea id="creator-idea" name="Proposed collaboration idea" required maxlength="1500" rows="4"></textarea>
+            </div>
+            <div class="network-consent network-field-wide">
+              <label><input type="checkbox" name="Application data consent" value="Agreed" required>
+                <span>I agree that Akora may use these details to review my application and contact me about it. <span>*</span></span>
+              </label>
+            </div>
+            <p class="network-status network-field-wide" data-registration-status role="status" aria-live="polite"></p>
+            <button class="btn network-submit network-field-wide" type="submit">Review application</button>
+          </form>
+
+          <form class="network-form" data-registration-form="partner" data-registration-title="Business Partner Registration" hidden>
+            <input type="hidden" name="Application category" value="Business Partner Registration">
+            <input type="hidden" name="_subject" value="Akora network application: Business partner">
+            <div class="network-field">
+              <label for="partner-business">Business name <span>*</span></label>
+              <input id="partner-business" name="Business name" required maxlength="160">
+            </div>
+            <div class="network-field">
+              <label for="partner-contact">Contact person's full name <span>*</span></label>
+              <input id="partner-contact" name="Contact person" autocomplete="name" required maxlength="120">
+            </div>
+            <div class="network-field">
+              <label for="partner-phone">Phone number <span>*</span></label>
+              <input id="partner-phone" name="Phone number" type="tel" autocomplete="tel" required maxlength="30">
+            </div>
+            <div class="network-field">
+              <label for="partner-email">Business email <span>*</span></label>
+              <input id="partner-email" name="Business email" type="email" autocomplete="email" required maxlength="254">
+            </div>
+            <div class="network-field">
+              <label for="partner-location">Business location <span>*</span></label>
+              <input id="partner-location" name="Business location" required maxlength="120">
+            </div>
+            <div class="network-field">
+              <label for="partner-type">Type of business <span>*</span></label>
+              <input id="partner-type" name="Type of business" required maxlength="120"
+                placeholder="e.g. travel agency, hotel, tour operator">
+            </div>
+            <div class="network-field">
+              <label for="partner-registration">Business registration details <span class="network-optional">optional</span></label>
+              <input id="partner-registration" name="Business registration details" maxlength="150">
+            </div>
+            <div class="network-field">
+              <label for="partner-links">Website or social media links <span class="network-optional">optional</span></label>
+              <input id="partner-links" name="Website or social links" maxlength="500">
+            </div>
+            <div class="network-field network-field-wide">
+              <label for="partner-services">Description of services <span>*</span></label>
+              <textarea id="partner-services" name="Description of services" required maxlength="1500" rows="3"></textarea>
+            </div>
+            <div class="network-field network-field-wide">
+              <label for="partner-proposal">Proposed partnership arrangement <span>*</span></label>
+              <textarea id="partner-proposal" name="Proposed partnership arrangement" required maxlength="1500" rows="4"></textarea>
+            </div>
+            <div class="network-consent network-field-wide">
+              <label><input type="checkbox" name="Application data consent" value="Agreed" required>
+                <span>I agree that Akora may use these details to review my application and contact me about it. <span>*</span></span>
+              </label>
+            </div>
+            <p class="network-status network-field-wide" data-registration-status role="status" aria-live="polite"></p>
+            <button class="btn network-submit network-field-wide" type="submit">Review application</button>
+          </form>
+
+          <p class="network-privacy-note">
+            Submit only information relevant to your application. Supporting documents are optional at this stage.
+            Applications are sent through Formspree to Akora; file attachment handling depends on the Formspree account configuration.
+          </p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="network-review-dialog" data-review-dialog aria-labelledby="review-dialog-title">
+    <div class="network-review-heading">
+      <div>
+        <p class="catalog-eyebrow">FINAL CHECK</p>
+        <h2 class="h2" id="review-dialog-title">Review your application</h2>
+        <p>Check these details before sending them to Akora.</p>
+      </div>
+      <button type="button" class="network-close-form" data-close-review aria-label="Close review">
+        <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+      </button>
+    </div>
+    <dl class="network-review-list" data-review-summary></dl>
+    <p class="network-review-consent">Submitting sends your application to Akora through Formspree for review and follow-up.</p>
+    <div class="network-review-actions">
+      <button type="button" class="network-secondary-btn" data-edit-application>Edit details</button>
+      <button type="button" class="btn network-submit" data-confirm-application>Send application</button>
+    </div>
+  </dialog>
+
+  <footer class="network-footer">
+    <div class="container">
+      <p>Akora Prime Wheels · Kisumu, Kenya</p>
+      <div>
+        <a href="tel:+254705036665">+254 705 036 665</a>
+        <a href="mailto:akora.danielfredrick@gmail.com">akora.danielfredrick@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/js/registration.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

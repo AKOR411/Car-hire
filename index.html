@@ -15,7 +15,7 @@
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/style.css?v=20261027-home-hero-search">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
   <!-- 
@@ -82,8 +82,9 @@
           <span id="aria-label-txt">Explore cars</span>
         </a>
 
-        <a href="#" class="btn user-btn" aria-label="Profile">
-          <ion-icon name="person-outline"></ion-icon>
+        <a href="./join-network.html" class="btn network-nav-btn"
+          aria-label="Register for careers and partnerships" title="Register">
+          <span>Register</span>
         </a>
 
         <button class="nav-toggle-btn" data-nav-toggle-btn aria-label="Toggle Menu">
@@ -119,45 +120,76 @@
             </p>
           </div>
 
+          <section class="rental-search-section" aria-label="Plan your trip">
+            <div class="container">
+              <form action="" class="rental-search-form" data-rental-search>
+
+                <div class="input-wrapper">
+                  <label for="pickup-location" class="input-label">Pickup location</label>
+
+                  <select name="pickup-location" id="pickup-location" class="input-field" required>
+                    <option value="Kisumu" selected>Kisumu</option>
+                    <option value="Nairobi">Nairobi</option>
+                    <option value="Mombasa">Mombasa</option>
+                    <option value="Nakuru">Nakuru</option>
+                    <option value="Eldoret">Eldoret</option>
+                    <option value="Kakamega">Kakamega</option>
+                    <option value="Bungoma">Bungoma</option>
+                    <option value="Siaya">Siaya</option>
+                    <option value="Migori">Migori</option>
+                    <option value="Malindi">Malindi</option>
+                    <option value="Diani">Diani</option>
+                  </select>
+                </div>
+
+                <div class="input-wrapper">
+                  <label for="pickup-date" class="input-label">Pickup date</label>
+
+                  <input type="date" name="pickup-date" id="pickup-date" class="input-field" required>
+                </div>
+
+                <div class="input-wrapper">
+                  <label for="return-date" class="input-label">Return date</label>
+
+                  <input type="date" name="return-date" id="return-date" class="input-field" required>
+                </div>
+
+                <div class="input-wrapper rental-detail-field" data-rental-kisumu-details hidden>
+                  <label for="pickup-subcounty" class="input-label">Sub-county</label>
+                  <select name="Pickup sub-county" id="pickup-subcounty" class="input-field" data-kisumu-subcounty>
+                    <option value="">Select sub-county</option>
+                    <option value="Kisumu Central">Kisumu Central</option>
+                    <option value="Kisumu East">Kisumu East</option>
+                    <option value="Kisumu West">Kisumu West</option>
+                    <option value="Muhoroni">Muhoroni</option>
+                    <option value="Nyakach">Nyakach</option>
+                    <option value="Nyando">Nyando</option>
+                    <option value="Seme">Seme</option>
+                  </select>
+                </div>
+
+                <div class="input-wrapper rental-detail-field" data-rental-kisumu-details data-kisumu-ward-group hidden>
+                  <label for="pickup-ward" class="input-label">Ward</label>
+                  <select name="Pickup ward" id="pickup-ward" class="input-field" data-kisumu-ward>
+                    <option value="">Select ward</option>
+                  </select>
+                </div>
+
+                <div class="input-wrapper rental-detail-field" data-rental-kisumu-details data-kisumu-area-group hidden>
+                  <label for="pickup-area" class="input-label">Landmark or estate name</label>
+                  <input type="text" name="Pickup area or landmark" id="pickup-area" class="input-field"
+                    data-kisumu-area maxlength="120" placeholder="Enter an estate, street, or nearby landmark">
+                </div>
+
+                <button type="submit" class="btn">Choose dates</button>
+
+              </form>
+
+              <p class="rental-search-message" data-rental-search-message aria-live="polite"></p>
+            </div>
+          </section>
+
           <div class="hero-banner"></div>
-
-          <form action="" class="hero-form" data-rental-search>
-
-            <div class="input-wrapper">
-              <label for="pickup-location" class="input-label">Pickup location</label>
-
-              <select name="pickup-location" id="pickup-location" class="input-field" required>
-                <option value="Kisumu" selected>Kisumu</option>
-                <option value="Nairobi">Nairobi</option>
-                <option value="Mombasa">Mombasa</option>
-                <option value="Nakuru">Nakuru</option>
-                <option value="Eldoret">Eldoret</option>
-                <option value="Kakamega">Kakamega</option>
-                <option value="Bungoma">Bungoma</option>
-                <option value="Siaya">Siaya</option>
-                <option value="Migori">Migori</option>
-                <option value="Malindi">Malindi</option>
-                <option value="Diani">Diani</option>
-              </select>
-            </div>
-
-            <div class="input-wrapper">
-              <label for="pickup-date" class="input-label">Pickup date</label>
-
-              <input type="date" name="pickup-date" id="pickup-date" class="input-field" required>
-            </div>
-
-            <div class="input-wrapper">
-              <label for="return-date" class="input-label">Return date</label>
-
-              <input type="date" name="return-date" id="return-date" class="input-field" required>
-            </div>
-
-            <button type="submit" class="btn">Choose dates</button>
-
-          </form>
-
-          <p class="rental-search-message" data-rental-search-message aria-live="polite"></p>
 
         </div>
       </section>
@@ -173,19 +205,34 @@
       <section class="section featured-car" id="featured-car">
         <div class="container">
 
-          <div class="title-wrapper">
-            <h2 class="h2 section-title">Featured cars</h2>
+          <ul class="featured-trust-list" aria-label="Akora booking details">
+            <li><ion-icon name="location-outline" aria-hidden="true"></ion-icon><span>Kisumu-based service</span></li>
+            <li><ion-icon name="pricetag-outline" aria-hidden="true"></ion-icon><span>Clear KES daily guide rates</span></li>
+            <li><ion-icon name="checkmark-circle-outline" aria-hidden="true"></ion-icon><span>Pay after vehicle delivery</span></li>
+          </ul>
 
-            <a href="./vehicles.html" class="featured-car-link">
-              <span>View more</span>
+          <div class="featured-intro">
+            <p class="featured-eyebrow">AKORA PRIME WHEELS</p>
+            <h2 class="h2 section-title">Find a car for your next journey</h2>
+            <p class="featured-description">
+              Explore our hand-listed vehicles, compare daily KES guide rates, and send a reservation request.
+              We’ll contact you to confirm availability and details.
+            </p>
+          </div>
 
-              <ion-icon name="arrow-forward-outline"></ion-icon>
-            </a>
+          <div class="featured-toolbar">
+            <div class="featured-filters" role="group" aria-label="Filter cars by type">
+              <button class="featured-filter active" type="button" data-vehicle-filter="all" aria-pressed="true">All vehicles</button>
+              <button class="featured-filter" type="button" data-vehicle-filter="suv" aria-pressed="false">SUVs</button>
+              <button class="featured-filter" type="button" data-vehicle-filter="sedan" aria-pressed="false">Sedans</button>
+              <button class="featured-filter" type="button" data-vehicle-filter="crossover" aria-pressed="false">Crossovers</button>
+            </div>
+
           </div>
 
           <ul class="featured-car-list">
 
-            <li>
+            <li data-vehicle-category="suv">
               <div class="featured-car-card">
 
                 <figure class="card-banner">
@@ -250,7 +297,7 @@
               </div>
             </li>
 
-            <li>
+            <li data-vehicle-category="sedan">
               <div class="featured-car-card">
 
                 <figure class="card-banner">
@@ -315,7 +362,7 @@
               </div>
             </li>
 
-            <li>
+            <li data-vehicle-category="crossover">
               <div class="featured-car-card">
 
                 <figure class="card-banner">
@@ -380,7 +427,7 @@
               </div>
             </li>
 
-            <li>
+            <li data-vehicle-category="suv">
               <div class="featured-car-card">
 
                 <figure class="card-banner">
@@ -445,7 +492,7 @@
               </div>
             </li>
 
-            <li>
+            <li data-vehicle-category="sedan">
               <div class="featured-car-card">
 
                 <figure class="card-banner">
@@ -510,7 +557,7 @@
               </div>
             </li>
 
-            <li>
+            <li data-vehicle-category="sedan">
               <div class="featured-car-card">
 
                 <figure class="card-banner">
@@ -577,10 +624,310 @@
 
           </ul>
 
+          <div class="featured-view-all">
+            <a href="./vehicles.html" class="featured-view-all-link">
+              <span>View all vehicles</span>
+              <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+            </a>
+          </div>
+
         </div>
       </section>
 
 
+
+      <!-- 
+        - #WHY CHOOSE AKORA
+      -->
+
+      <section class="section why-akora" aria-labelledby="why-akora-title">
+        <div class="container">
+
+          <div class="why-akora-heading">
+            <h2 class="h2 section-title" id="why-akora-title">Why choose Akora?</h2>
+            <p class="why-akora-intro">
+              A straightforward car-hire experience, with local support from reservation to pickup.
+            </p>
+          </div>
+
+          <ul class="why-akora-list">
+
+            <li>
+              <article class="why-akora-card">
+                <span class="why-akora-icon">
+                  <ion-icon name="car-sport-outline" aria-hidden="true"></ion-icon>
+                </span>
+                <h3 class="why-akora-card-title">A hand-listed fleet</h3>
+                <p class="why-akora-card-text">
+                  Explore our available vehicles and ask us to confirm the right car for your trip.
+                </p>
+              </article>
+            </li>
+
+            <li>
+              <article class="why-akora-card">
+                <span class="why-akora-icon">
+                  <ion-icon name="pricetag-outline" aria-hidden="true"></ion-icon>
+                </span>
+                <h3 class="why-akora-card-title">Clear daily rates</h3>
+                <p class="why-akora-card-text">
+                  See guide prices in Kenyan shillings per day, with final details confirmed by our team.
+                </p>
+              </article>
+            </li>
+
+            <li>
+              <article class="why-akora-card">
+                <span class="why-akora-icon">
+                  <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+                </span>
+                <h3 class="why-akora-card-title">Pickup planned around you</h3>
+                <p class="why-akora-card-text">
+                  Select a city, then specify a Kisumu sub-county, ward, and nearby estate or landmark.
+                </p>
+              </article>
+            </li>
+
+            <li>
+              <article class="why-akora-card">
+                <span class="why-akora-icon">
+                  <ion-icon name="chatbubbles-outline" aria-hidden="true"></ion-icon>
+                </span>
+                <h3 class="why-akora-card-title">Personal reservation support</h3>
+                <p class="why-akora-card-text">
+                  Send a request and speak with Akora to confirm availability. Pay after vehicle delivery.
+                </p>
+              </article>
+            </li>
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #BLOG
+      -->
+
+      <section class="section blog" id="blog">
+        <div class="container">
+
+          <h2 class="h2 section-title">Our Blog</h2>
+
+          <ul class="blog-list has-scrollbar">
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner">
+
+                  <img src="./assets/images/blog-1.jpg" alt="Opening of new offices of the company" loading="lazy"
+                    class="w-100">
+
+                  <a href="https://www.business-in-a-box.com/template/press-release-opening-a-new-office-D1405/"
+                    class="btn card-badge" target="_blank" rel="noopener noreferrer"
+                    aria-label="Company: opening a new office guide">Company</a>
+
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">
+                    Opening of new offices of the company
+                  </h3>
+
+                  <div class="card-meta">
+
+                    <div class="publish-date">
+                      <ion-icon name="time-outline"></ion-icon>
+
+                      <time datetime="2022-01-14">January 14, 2022</time>
+                    </div>
+
+                    <div class="comments">
+                      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+
+                      <data value="114">114</data>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner">
+
+                  <img src="./assets/images/blog-2.jpg" alt="What cars are most vulnerable" loading="lazy"
+                    class="w-100">
+
+                  <a href="https://www.cars.com/articles/these-vehicles-are-most-vulnerable-to-theft-says-iihs-457296/"
+                    class="btn card-badge" target="_blank" rel="noopener noreferrer"
+                    aria-label="Repair: vehicles vulnerable to theft report">Repair</a>
+
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">
+                    What cars are most vulnerable
+                  </h3>
+
+                  <div class="card-meta">
+
+                    <div class="publish-date">
+                      <ion-icon name="time-outline"></ion-icon>
+
+                      <time datetime="2022-01-14">January 14, 2022</time>
+                    </div>
+
+                    <div class="comments">
+                      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+
+                      <data value="114">114</data>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner">
+
+                  <img src="./assets/images/blog-3.jpg" alt="Statistics showed which average age" loading="lazy"
+                    class="w-100">
+
+                  <a href="https://www.comparethemarket.com.au/car-insurance/features/most-stolen-car-brands-and-models/"
+                    class="btn card-badge" target="_blank" rel="noopener noreferrer"
+                    aria-label="Cars: vehicle theft statistics">Cars</a>
+
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">
+                    Statistics showed which average age
+                  </h3>
+
+                  <div class="card-meta">
+
+                    <div class="publish-date">
+                      <ion-icon name="time-outline"></ion-icon>
+
+                      <time datetime="2022-01-14">January 14, 2022</time>
+                    </div>
+
+                    <div class="comments">
+                      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+
+                      <data value="114">114</data>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner">
+
+                  <img src="./assets/images/blog-4.jpg" alt="What´s required when renting a car?" loading="lazy"
+                    class="w-100">
+
+                  <a href="https://elitemotionluxury.com/blog/Complete-Guide-to-Car-Hire-Requirements-in-Kenya_"
+                    class="btn card-badge" target="_blank" rel="noopener noreferrer"
+                    aria-label="Cars: car hire requirements in Kenya">Cars</a>
+
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">
+                    What´s required when renting a car?
+                  </h3>
+
+                  <div class="card-meta">
+
+                    <div class="publish-date">
+                      <ion-icon name="time-outline"></ion-icon>
+
+                      <time datetime="2022-01-14">January 14, 2022</time>
+                    </div>
+
+                    <div class="comments">
+                      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+
+                      <data value="114">114</data>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner">
+
+                  <img src="./assets/images/blog-5.jpg" alt="New rules for handling our cars" loading="lazy"
+                    class="w-100">
+
+                  <a href="https://www.youtube.com/watch?v=ZyqK8SpgL-c"
+                    class="btn card-badge" target="_blank" rel="noopener noreferrer"
+                    aria-label="Company: rental vehicle safety tips video">Company</a>
+
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">
+                    New rules for handling our cars
+                  </h3>
+
+                  <div class="card-meta">
+
+                    <div class="publish-date">
+                      <ion-icon name="time-outline"></ion-icon>
+
+                      <time datetime="2022-01-14">January 14, 2022</time>
+                    </div>
+
+                    <div class="comments">
+                      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+
+                      <data value="114">114</data>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
 
       <section class="section service-map" id="service-areas">
         <div class="container">
@@ -588,8 +935,8 @@
           <div class="service-map-heading">
             <h2 class="h2 section-title">Explore locations across Kenya</h2>
             <p class="service-map-description">
-              Kisumu is our starting point. Select a city on the map to set your pickup location.
-              Pins mark city centres; confirm your exact pickup point with Akora.
+              Select a city on the map to set your pickup location. For Kisumu, choose your sub-county and ward,
+              then enter an estate or landmark so we can identify your pickup point.
             </p>
           </div>
 
@@ -625,316 +972,6 @@
         </div>
       </section>
 
-
-
-      <!-- 
-        - #GET START
-      -->
-
-      <section class="section get-start">
-        <div class="container">
-
-          <h2 class="h2 section-title">Get started with 4 simple steps</h2>
-
-          <ul class="get-start-list">
-
-            <li>
-              <div class="get-start-card">
-
-                <div class="card-icon icon-1">
-                  <ion-icon name="person-add-outline"></ion-icon>
-                </div>
-
-                <h3 class="card-title">Create a profile</h3>
-
-                <p class="card-text">
-                  If you are going to use a passage of Lorem Ipsum, you need to be sure.
-                </p>
-
-                <a href="#" class="card-link">Get started</a>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="get-start-card">
-
-                <div class="card-icon icon-2">
-                  <ion-icon name="car-outline"></ion-icon>
-                </div>
-
-                <h3 class="card-title">Tell us what car you want</h3>
-
-                <p class="card-text">
-                  Various versions have evolved over the years, sometimes by accident, sometimes on purpose
-                </p>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="get-start-card">
-
-                <div class="card-icon icon-3">
-                  <ion-icon name="person-outline"></ion-icon>
-                </div>
-
-                <h3 class="card-title">Match with seller</h3>
-
-                <p class="card-text">
-                  It to make a type specimen book. It has survived not only five centuries, but also the leap into
-                  electronic
-                </p>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="get-start-card">
-
-                <div class="card-icon icon-4">
-                  <ion-icon name="card-outline"></ion-icon>
-                </div>
-
-                <h3 class="card-title">Make a deal</h3>
-
-                <p class="card-text">
-                  There are many variations of passages of Lorem available, but the majority have suffered alteration
-                </p>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </div>
-      </section>
-
-
-
-
-
-      <!-- 
-        - #BLOG
-      -->
-
-      <section class="section blog" id="blog">
-        <div class="container">
-
-          <h2 class="h2 section-title">Our Blog</h2>
-
-          <ul class="blog-list has-scrollbar">
-
-            <li>
-              <div class="blog-card">
-
-                <figure class="card-banner">
-
-                  <a href="#">
-                    <img src="./assets/images/blog-1.jpg" alt="Opening of new offices of the company" loading="lazy"
-                      class="w-100">
-                  </a>
-
-                  <a href="#" class="btn card-badge">Company</a>
-
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3 card-title">
-                    <a href="#">Opening of new offices of the company</a>
-                  </h3>
-
-                  <div class="card-meta">
-
-                    <div class="publish-date">
-                      <ion-icon name="time-outline"></ion-icon>
-
-                      <time datetime="2022-01-14">January 14, 2022</time>
-                    </div>
-
-                    <div class="comments">
-                      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-
-                      <data value="114">114</data>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="blog-card">
-
-                <figure class="card-banner">
-
-                  <a href="#">
-                    <img src="./assets/images/blog-2.jpg" alt="What cars are most vulnerable" loading="lazy"
-                      class="w-100">
-                  </a>
-
-                  <a href="#" class="btn card-badge">Repair</a>
-
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3 card-title">
-                    <a href="#">What cars are most vulnerable</a>
-                  </h3>
-
-                  <div class="card-meta">
-
-                    <div class="publish-date">
-                      <ion-icon name="time-outline"></ion-icon>
-
-                      <time datetime="2022-01-14">January 14, 2022</time>
-                    </div>
-
-                    <div class="comments">
-                      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-
-                      <data value="114">114</data>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="blog-card">
-
-                <figure class="card-banner">
-
-                  <a href="#">
-                    <img src="./assets/images/blog-3.jpg" alt="Statistics showed which average age" loading="lazy"
-                      class="w-100">
-                  </a>
-
-                  <a href="#" class="btn card-badge">Cars</a>
-
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3 card-title">
-                    <a href="#">Statistics showed which average age</a>
-                  </h3>
-
-                  <div class="card-meta">
-
-                    <div class="publish-date">
-                      <ion-icon name="time-outline"></ion-icon>
-
-                      <time datetime="2022-01-14">January 14, 2022</time>
-                    </div>
-
-                    <div class="comments">
-                      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-
-                      <data value="114">114</data>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="blog-card">
-
-                <figure class="card-banner">
-
-                  <a href="#">
-                    <img src="./assets/images/blog-4.jpg" alt="What´s required when renting a car?" loading="lazy"
-                      class="w-100">
-                  </a>
-
-                  <a href="#" class="btn card-badge">Cars</a>
-
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3 card-title">
-                    <a href="#">What´s required when renting a car?</a>
-                  </h3>
-
-                  <div class="card-meta">
-
-                    <div class="publish-date">
-                      <ion-icon name="time-outline"></ion-icon>
-
-                      <time datetime="2022-01-14">January 14, 2022</time>
-                    </div>
-
-                    <div class="comments">
-                      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-
-                      <data value="114">114</data>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="blog-card">
-
-                <figure class="card-banner">
-
-                  <a href="#">
-                    <img src="./assets/images/blog-5.jpg" alt="New rules for handling our cars" loading="lazy"
-                      class="w-100">
-                  </a>
-
-                  <a href="#" class="btn card-badge">Company</a>
-
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3 card-title">
-                    <a href="#">New rules for handling our cars</a>
-                  </h3>
-
-                  <div class="card-meta">
-
-                    <div class="publish-date">
-                      <ion-icon name="time-outline"></ion-icon>
-
-                      <time datetime="2022-01-14">January 14, 2022</time>
-                    </div>
-
-                    <div class="comments">
-                      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-
-                      <data value="114">114</data>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </div>
-      </section>
-
     </article>
   </main>
 
@@ -957,9 +994,33 @@
           </a>
 
           <p class="footer-text">
-            Akora is based in Kisumu, Kenya. Choose your pickup location and travel dates, then contact us to confirm
-            vehicle availability and pickup details.
+            Kisumu-based car hire. Reserve your vehicle and pay after delivery.
           </p>
+
+          <div class="footer-contact">
+            <p class="footer-contact-title">Get in touch</p>
+            <ul class="footer-contact-list">
+              <li>
+                <a href="tel:+254705036665" class="footer-contact-link">
+                  <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+                  <span>+254 705 036 665</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/254705036665" class="footer-contact-link"
+                  target="_blank" rel="noopener noreferrer">
+                  <ion-icon name="logo-whatsapp" aria-hidden="true"></ion-icon>
+                  <span>Chat on WhatsApp</span>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:akora.danielfredrick@gmail.com" class="footer-contact-link">
+                  <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+                  <span>akora.danielfredrick@gmail.com</span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <ul class="footer-list">
@@ -1053,47 +1114,6 @@
       </div>
 
       <div class="footer-bottom">
-
-        <ul class="social-list">
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-skype"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="mail-outline"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
         <p class="copyright">
           &copy; 2026 Akora Prime Wheels. All rights reserved.
         </p>
@@ -1160,6 +1180,33 @@
           <option value="Malindi">Malindi</option>
           <option value="Diani">Diani</option>
         </select>
+      </div>
+
+      <div class="booking-field" data-booking-kisumu-details hidden>
+        <label for="booking-subcounty">Sub-county</label>
+        <select id="booking-subcounty" name="Pickup sub-county" data-kisumu-subcounty>
+          <option value="">Select sub-county</option>
+          <option value="Kisumu Central">Kisumu Central</option>
+          <option value="Kisumu East">Kisumu East</option>
+          <option value="Kisumu West">Kisumu West</option>
+          <option value="Muhoroni">Muhoroni</option>
+          <option value="Nyakach">Nyakach</option>
+          <option value="Nyando">Nyando</option>
+          <option value="Seme">Seme</option>
+        </select>
+      </div>
+
+      <div class="booking-field" data-booking-kisumu-details data-kisumu-ward-group hidden>
+        <label for="booking-ward">Ward</label>
+        <select id="booking-ward" name="Pickup ward" data-kisumu-ward>
+          <option value="">Select ward</option>
+        </select>
+      </div>
+
+      <div class="booking-field" data-booking-kisumu-details data-kisumu-area-group hidden>
+        <label for="booking-area">Landmark or estate name</label>
+        <input id="booking-area" name="Pickup area or landmark" type="text" maxlength="120"
+          placeholder="Enter an estate, street, or nearby landmark" data-kisumu-area>
       </div>
 
       <div class="booking-field">

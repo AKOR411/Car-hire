@@ -303,23 +303,25 @@ if (bookingDialog && bookingForm && bookingPickupDate && bookingReturnDate) {
     setBookingStatus("Sending your reservation request securely...", "");
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/akora.danielfredrick@gmail.com", {
+      const response = await fetch("https://formspree.io/f/xnpppyyz", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
           "Accept": "application/json",
         },
-        body: JSON.stringify(Object.fromEntries(new FormData(bookingForm))),
+        body: new FormData(bookingForm),
       });
       const result = await response.json();
 
-      if (!response.ok || (result.success !== true && result.success !== "true")) {
-        throw new Error(result.message || "The reservation request could not be sent.");
+      if (!response.ok || result.ok === false) {
+        const responseErrors = Array.isArray(result.errors)
+          ? result.errors.map(function (item) { return item.message; }).filter(Boolean).join(" ")
+          : "";
+        throw new Error(responseErrors || result.error || "The reservation request could not be sent.");
       }
 
       bookingForm.hidden = true;
       setBookingStatus(
-        "Your request was submitted. Akora will contact you to confirm availability and delivery. If this is the first request, check the inbox for FormSubmit's activation email.",
+        "Your request was submitted. Akora will contact you to confirm availability and delivery. No online payment was taken.",
         "success"
       );
     } catch (error) {

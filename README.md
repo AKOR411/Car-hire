@@ -30,7 +30,7 @@ The website is a static HTML, CSS, and JavaScript project. A public live demo is
 
 ## Vehicle listings
 
-The **View more** link opens [`vehicles.html`](./vehicles.html), where visitors can search, filter, and sort the manually maintained listings. When updating a vehicle, keep its details in sync between [`vehicles.html`](./vehicles.html) and the featured cards in [`index.html`](./index.html).
+The **View more** link opens [`vehicles.html`](./vehicles.html), where visitors can search, filter, and sort the manually maintained listings. Displayed rates are in Kenyan shillings (KES) per day and should be kept in sync between [`vehicles.html`](./vehicles.html) and the featured cards in [`index.html`](./index.html). Confirm the applicable vehicle rate and terms with Akora when handling each reservation.
 
 ## Run locally
 

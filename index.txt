@@ -66,8 +66,8 @@ Hybrid
 <ion-icon name="hardware-chip-outline"></ion-icon>
 Automatic
 
-$440
-/ month
+KES 8,500
+/ day
 
 aria-label = Add to favourite list
 <ion-icon name="heart-outline"></ion-icon>
@@ -84,7 +84,8 @@ Gasoline
 
 8.2km / 1-litre
 
-$350
+KES 18,000
+/ day
 
 
 alt = Volkswagen T-Cross 2020
@@ -94,7 +95,8 @@ Volkswagen T-Cross
 
 5.3km / 1-litre
 
-$400
+KES 7,500
+/ day
 
 
 alt = Cadillac Escalade 2020
@@ -104,7 +106,8 @@ Cadillac Escalade
 
 7.7km / 1-litre
 
-$620
+KES 28,000
+/ day
 
 
 alt = BMW 4 Series GTI 2021
@@ -114,7 +117,8 @@ BMW 4 Series GTI
 
 7.6km / 1-litre
 
-$530
+KES 18,000
+/ day
 
 
 alt = BMW 4 Series 2019
@@ -124,7 +128,8 @@ BMW 4 Series
 
 7.2km / 1-litre
 
-$490
+KES 18,000
+/ day
 
 
 

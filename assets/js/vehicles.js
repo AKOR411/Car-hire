@@ -66,8 +66,11 @@ const updateCatalog = function () {
 
   resultCount.textContent = `${visibleCount} ${visibleCount === 1 ? "vehicle" : "vehicles"}`;
   emptyMessage.hidden = visibleCount > 0;
-  maxPriceOutput.value = `$${maxPrice} / month`;
-  maxPriceOutput.textContent = `$${maxPrice} / month`;
+  const formattedMaxPrice = new Intl.NumberFormat("en-KE", {
+    maximumFractionDigits: 0
+  }).format(maxPrice);
+  maxPriceOutput.value = `KES ${formattedMaxPrice} / day`;
+  maxPriceOutput.textContent = `KES ${formattedMaxPrice} / day`;
 };
 
 [searchInput, maxPriceInput, sortSelect].forEach(function (control) {
